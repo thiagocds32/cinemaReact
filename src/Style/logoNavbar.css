@@ -1,0 +1,10 @@
+.logoNavbar {
+  margin-left: 5%;
+  font-size: 35px !important;
+  color: white;
+  letter-spacing: 10px;
+}
+.logoNavbar:hover {
+  color: #42fbf2;
+  cursor: pointer;
+}

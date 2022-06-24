@@ -1,0 +1,38 @@
+.box {
+  position: relative;
+  margin-right: 50px;
+  margin-left: auto;
+}
+
+.input {
+  padding: 10px;
+  width: 45px;
+  height: 45px;
+  background: none;
+  border: 3px solid #42fbf2;
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-family: Comic Sans MS;
+  font-size: 26px;
+  color: #42fbf2;
+  outline: none;
+  transition: 0.5s;
+}
+.box:hover input {
+  width: 120px;
+  background: #25252a;
+  border-radius: 10px;
+}
+.box i {
+  position: absolute;
+  top: 50%;
+  right: 3.5px;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #42fbf2;
+  transition: 0.2s;
+}
+.box:hover i {
+  opacity: 0;
+  z-index: -1;
+}

@@ -1,0 +1,121 @@
+.accediContainer {
+  text-align: center;
+  padding-top: 50px;
+  margin: 0;
+}
+#accedi {
+  letter-spacing: 15px;
+  color: #f5f5f4;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.formLogin a {
+  color: #42fbf2;
+  text-decoration: underline #42fbf2;
+  letter-spacing: 5px;
+}
+.formLogin {
+  color: #f5f5f4;
+  text-align: center;
+  width: 65%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formLogin label {
+  color: #f5f5f4;
+  font-weight: bold;
+  letter-spacing: 6px;
+  font-size: 20px;
+  margin: 10px auto 10px auto;
+}
+.formLoginContent {
+  margin-bottom: 30px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid #42fbf2;
+  text-align: center;
+  border-radius: 10%;
+  letter-spacing: 3px;
+  color: #42fbf2;
+  height: 30px;
+}
+.formLoginContent::placeholder {
+  color: #f5f5f4;
+  font-weight: bold;
+  letter-spacing: 6px;
+}
+
+.loginRequestButtonContainer {
+  width: 70%;
+  border-radius: 10%;
+  padding: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+.loginRequestButtonContainer p {
+  margin-top: 2%;
+  letter-spacing: 2px;
+}
+.loginRequestButtonContainer span {
+  color: white;
+  text-decoration: underline white;
+}
+
+.loginRequestButtonContainer span:hover {
+  cursor: pointer;
+}
+
+#loginRequestButton {
+  width: 100%;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-decoration: none;
+  color: #f5f5f4;
+  border-radius: 10%;
+  outline: none;
+  transition: ease-out 0.3s;
+  border: 2px solid #42fbf2;
+  z-index: 1;
+  position: relative;
+  background-color: transparent;
+}
+
+#loginRequestButton:hover {
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  color: black;
+}
+#loginRequestButton:focus {
+  color: black;
+}
+
+#loginRequestButton:before {
+  position: absolute;
+  transition: 0.5s all ease;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #42fbf2;
+}
+
+#loginRequestButton:hover:before {
+  transition: 0.2s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+  color: white;
+}
+
+#loginRequestButton:focus {
+  color: white;
+}

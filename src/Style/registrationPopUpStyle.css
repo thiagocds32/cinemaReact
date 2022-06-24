@@ -1,0 +1,228 @@
+#registerHeader {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 8px;
+  color: #42fbf2;
+  margin-top: 20px;
+}
+
+.registrationForm {
+  width: 70%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#datiCheck {
+  text-align: center;
+  vertical-align: middle;
+}
+.registrationForm input {
+  font-size: 18px;
+  background-color: transparent;
+  text-align: center;
+  letter-spacing: 3px;
+  width: 100%;
+  border-radius: 10%;
+  border: 1px solid #42fbf2;
+  color: #42fbf2;
+}
+
+.registrationForm input[type="date"]:focus {
+  background-color: transparent;
+}
+
+::-webkit-datetime-edit-text {
+  color: white;
+}
+::-webkit-datetime-edit-month-field {
+  color: white;
+}
+::-webkit-datetime-edit-day-field {
+  color: white;
+}
+::-webkit-datetime-edit-year-field {
+  color: white;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #42fbf2 !important;
+}
+
+.registrationForm p {
+  text-align: center;
+  justify-content: center;
+}
+
+.registrationForm input::placeholder {
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 5px;
+  color: #f5f5f4;
+  font-weight: bold;
+}
+
+#trattamentoDati {
+  background: transparent;
+  text-align: center;
+  vertical-align: middle;
+  width: 5%;
+}
+
+#trattamentoDati + label {
+  text-align: center;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 2px;
+  width: 70%;
+  vertical-align: middle;
+}
+#trattamentoDati + label a {
+  text-decoration: underline white;
+  color: white;
+}
+
+#registrationButton {
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  border-radius: 10%;
+  outline: none;
+  transition: ease-out 0.3s;
+  border: 2px solid #42fbf2;
+  z-index: 1;
+  position: relative;
+  background-color: transparent;
+  letter-spacing: 5px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#registrationButton:hover {
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  color: black;
+}
+
+#registrationButton:before {
+  position: absolute;
+  transition: 0.5s all ease;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #42fbf2;
+}
+
+#registrationButton:hover:before {
+  transition: 0.2s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+  color: white;
+}
+
+#registrationButton:focus {
+  color: white;
+}
+
+#passwordControls {
+  display: none;
+  text-align: center;
+}
+
+#passwordControls p {
+  color: #f5f5f4;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.fa-check-circle {
+  display: none !important;
+  color: #42fbf2;
+  font-size: 10px !important;
+}
+.fa-times-circle {
+  display: none !important;
+  color: #9b0059;
+  font-size: 10px !important;
+}
+.sbagliato {
+  color: #9b0059 !important;
+}
+.corretta {
+  color: #42fbf2 !important;
+}
+
+#seePass {
+  font-size: 20px;
+  color: #f5f5f4;
+  float: right;
+  position: relative;
+  bottom: 25px;
+  right: -30px;
+  cursor: pointer;
+  display: none;
+}
+
+#hidePass {
+  display: none;
+  font-size: 20px;
+  color: #f5f5f4;
+  float: right;
+  position: relative;
+  bottom: 25px;
+  right: -30px;
+  cursor: pointer;
+}
+
+#devonoContenere {
+  color: #42fbf2 !important;
+}
+
+.controllerError {
+  color: #9b0059;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+@keyframes disabling {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes enabling {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.enabled {
+  animation: enabling 1000ms;
+  display: block !important;
+}
