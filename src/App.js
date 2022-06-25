@@ -15,6 +15,7 @@ import { getMovies } from "./Services/moviesService";
 import CardAcquisto from "./Components/Commons/filmCardAcquisto";
 import { checkWallpaperExist } from "./Utils/searchWallpaperAlgorithm";
 import NotFound from "./Components/NotFound";
+import { SearchContext } from "./context/searchContext";
 
 class App extends Component {
   state = {
@@ -62,49 +63,57 @@ class App extends Component {
     const { loginPopUp, registrationPopUp, movies, search } = this.state;
     return (
       <React.Fragment>
-        <Popup closePopUp={this.popUploginHandler} trigger={loginPopUp}>
-          <LoginPopUp />
-        </Popup>
-
-        <Popup
-          closePopUp={this.popUpRegistrationHandler}
-          trigger={registrationPopUp}
+        <SearchContext.Provider
+          value={{ search, setSearch: this.handleSearch }}
         >
-          <RegistrationPopUP />
-        </Popup>
-        <header>
-          <Navbar
-            onSearch={this.handleSearch}
-            popUpLoginTrigger={this.popUploginHandler}
-            popUpRegistrationTrigger={this.popUpRegistrationHandler}
-          />
-        </header>
+          <Popup closePopUp={this.popUploginHandler} trigger={loginPopUp}>
+            <LoginPopUp />
+          </Popup>
 
-        <div className="container-fluid">
-          <Routes>
-            <Route path="/" element={<Home movies={movies} />} />
-            <Route
-              path="programmazione"
-              element={<Programmazione movies={movies} search={search} />}
+          <Popup
+            closePopUp={this.popUpRegistrationHandler}
+            trigger={registrationPopUp}
+          >
+            <RegistrationPopUP />
+          </Popup>
+          <header>
+            <Navbar
+              onSearch={this.handleSearch}
+              popUpLoginTrigger={this.popUploginHandler}
+              popUpRegistrationTrigger={this.popUpRegistrationHandler}
             />
+          </header>
 
-            <Route path="prenotaOra" element={<Prenotazione movies={movies} />}>
-              {movies.map((movie) => (
-                <Route
-                  key={"route" + movie._id}
-                  path={`/prenotaOra/:id`}
-                  element={<CardAcquisto movies={movies} />}
-                />
-              ))}
-            </Route>
-            <Route path="/not-found" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/not-found" replace />} />
-          </Routes>
+          <div className="container-fluid">
+            <Routes>
+              <Route path="/" element={<Home movies={movies} />} />
 
-          {/* {this.viewHandler()} */}
-        </div>
+              <Route
+                path="programmazione"
+                element={<Programmazione movies={movies} />}
+              />
 
-        <Footer />
+              <Route
+                path="prenotaOra"
+                element={<Prenotazione movies={movies} />}
+              >
+                {movies.map((movie) => (
+                  <Route
+                    key={"route" + movie._id}
+                    path={`/prenotaOra/:id`}
+                    element={<CardAcquisto movies={movies} />}
+                  />
+                ))}
+              </Route>
+              <Route path="/not-found" element={<NotFound />} />
+              <Route path="*" element={<Navigate to="/not-found" replace />} />
+            </Routes>
+
+            {/* {this.viewHandler()} */}
+          </div>
+
+          <Footer />
+        </SearchContext.Provider>
       </React.Fragment>
     );
   }

@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 
 import "../../Style/searchStyle.css";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "./../../context/searchContext";
 
 class Search extends Component {
+  state = {};
   handleSearchBox = (e) => {
     e.currentTarget.value = "";
   };
@@ -11,21 +13,30 @@ class Search extends Component {
   useHandleSearch = (e) => {
     e.preventDefault();
 
-    this.props.navigate("/programmazione");
-    this.props.onSearch(e.target[0].value);
+    const { navigate, searchContext } = this.props;
+    navigate("/programmazione");
+    searchContext.setSearch(e.target[0].value);
   };
 
   useHandleSearchChange = (e) => {
-    console.log("aa");
-    this.props.navigate("/programmazione");
-    this.props.onSearch(e.currentTarget.value);
+    const { navigate, searchContext } = this.props;
+
+    navigate("/programmazione");
+    searchContext.setSearch(e.currentTarget.value);
+  };
+
+  handleFocus = () => {
+    let focus = !this.state.focus;
+    this.setState({ focus });
   };
   render() {
     return (
-      <li class="nav-item">
+      <li class="nav-item collapse navbar-collapse">
         <div class="box">
           <form onSubmit={this.useHandleSearch} name="search">
             <input
+              onFocus={this.handleFocus}
+              onBlur={this.handleFocus}
               onChange={this.useHandleSearchChange}
               type="text"
               class="input"
@@ -33,7 +44,7 @@ class Search extends Component {
               onMouseLeave={this.handleSearchBox}
             />
           </form>
-          <i class="fa fa-search"></i>
+          {!this.state.focus && <i className="fa fa-search"></i>}
         </div>
       </li>
     );
@@ -42,5 +53,11 @@ class Search extends Component {
 
 export default function (props) {
   let navigate = useNavigate();
-  return <Search {...props} navigate={navigate} />;
+  return (
+    <SearchContext.Consumer>
+      {(searchContext) => (
+        <Search {...props} navigate={navigate} searchContext={searchContext} />
+      )}
+    </SearchContext.Consumer>
+  );
 }

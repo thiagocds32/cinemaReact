@@ -102,3 +102,14 @@
   background-color: #42fbf2;
   color: #25252a;
 }
+
+@media screen and (max-width: 992px) {
+  .selectDropdown {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .selectDropdown {
+    width: 100%;
+  }
+}

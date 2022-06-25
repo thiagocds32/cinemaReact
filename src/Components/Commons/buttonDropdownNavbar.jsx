@@ -6,7 +6,7 @@ const ButtonDropdown = (props) => {
     props;
   return (
     <React.Fragment>
-      <li>
+      <li className="collapse navbar-collapse">
         <div className="dropdown">
           <a
             className="dropdown-toggle buttonNavbar"

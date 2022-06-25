@@ -1,27 +1,25 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useContext, useEffect } from "react";
 import FilmCardSearch from "./Commons/filmCardSearch";
 
 import { checkWallpaperExist } from "../Utils/searchWallpaperAlgorithm";
 import { checkLocandinaExist } from "../Utils/searchLocandinaAlgorithm";
 import "../Style/programmazioneStyle.css";
 import { useParams } from "react-router-dom";
+import { SearchContext } from "./../context/searchContext";
 
 class Programmazione extends Component {
   state = {};
 
-  componentDidMount() {
-    const search = this.props.search;
-    if (search === undefined) return;
-    this.setState({ search });
-  }
-  componentWillReceiveProps(nextProps) {
-    const search = nextProps.search;
-    if (search === undefined) return;
-    this.setState({ search });
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const search = nextProps.search;
+  //   if (search === undefined) return;
+  //   this.setState({ search });
+  // }
 
   moviesProgramHandler = (movies) => {
-    const search = this.state.search;
+    const { searchContext } = this.props;
+
+    const search = searchContext.search;
     if (search === undefined) return movies;
 
     const searchLower = search.toLowerCase();
@@ -55,5 +53,15 @@ class Programmazione extends Component {
 export default function (props) {
   let params = useParams();
 
-  return <Programmazione {...props} params={params} />;
+  return (
+    <SearchContext.Consumer>
+      {(searchContext) => (
+        <Programmazione
+          {...props}
+          params={params}
+          searchContext={searchContext}
+        />
+      )}
+    </SearchContext.Consumer>
+  );
 }

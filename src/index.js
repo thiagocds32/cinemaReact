@@ -7,7 +7,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "font-awesome/css/font-awesome.css";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
+import "bootstrap/dist/js/bootstrap.min.js";
+
+import "../node_modules/jquery/dist/jquery.min.js";
 import { BrowserRouter } from "react-router-dom";
 import Wrapper from "./Utils/scrollToTop";
 

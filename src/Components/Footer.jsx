@@ -1,6 +1,7 @@
 import React from "react";
 import SocialMediaIcons from "./Commons/socialMediaIcons";
 import "../Style/footerStyle.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -12,10 +13,16 @@ const Footer = () => {
             <div className="column1 col-md-12 col-lg-4">
               <p className="titlesFooter">Cinema Aprile</p>
               <p>
-                <button> Chi Siamo </button>
+                <Link className="linksFooter" to="/">
+                  {" "}
+                  Chi Siamo{" "}
+                </Link>
               </p>
               <p>
-                <button> Lavora con noi </button>
+                <Link className="linksFooter" to="/">
+                  {" "}
+                  Lavora con noi{" "}
+                </Link>
               </p>
             </div>
 

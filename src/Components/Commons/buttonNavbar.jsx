@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ButtonNavbar = (props) => {
   const { innerText, onLogin, onLogout, login, link } = props;
   return (
-    <li>
+    <li className="collapse navbar-collapse">
       <Link
         onClick={login ? onLogout : onLogin}
         className="buttonNavbar"

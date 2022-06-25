@@ -1,0 +1,49 @@
+#menumobileNascosto {
+  text-align: center;
+  font-size: 150%;
+
+  font-weight: bold;
+}
+#menumobileNascosto ul {
+  list-style: none;
+}
+.menumobileNascosto {
+  letter-spacing: 5px;
+  color: #f5f5f4 !important;
+  transition: ease-out 0.3s;
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+}
+
+.menumobileNascosto:hover {
+  cursor: pointer;
+  color: #25252a !important;
+  font-weight: bold;
+}
+
+.menumobileNascosto:before {
+  position: absolute;
+  transition: 0.5s all ease;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #42fbf2;
+}
+.menumobileNascosto:hover:before {
+  transition: 0.2s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+  color: #f5f5f4;
+}
+
+.menumobileNascosto:focus {
+  color: #f5f5f4;
+}

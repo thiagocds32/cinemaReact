@@ -1,6 +1,6 @@
 .buttonNavbar {
   text-decoration: none;
-  padding: 8px;
+  padding: 5px;
   letter-spacing: 5px;
   text-align: center;
   background-color: transparent;
@@ -14,6 +14,7 @@
   width: fit-content;
   margin: 0px 20px;
   font-weight: bold;
+  font-size: 15px;
 }
 
 .buttonNavbar:hover {
@@ -71,4 +72,19 @@
   color: black;
   font-weight: bold;
   background-color: #42fbf2 !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .buttonNavbar {
+    font-size: 13px;
+    letter-spacing: 3px;
+    padding: 4px;
+    margin: 0 15px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .buttonNavbar {
+    font-size: 12px;
+    margin: 0 10px;
+  }
 }

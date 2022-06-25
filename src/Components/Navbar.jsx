@@ -3,7 +3,11 @@ import ButtonNavbar from "./Commons/buttonNavbar";
 import LogoNavbar from "./Commons/logoNavbar";
 import "../Style/navbarHeaderStyle.css";
 import ButtonDropdown from "./Commons/buttonDropdownNavbar";
+
 import Search from "./Commons/search";
+import { SearchContext } from "./../context/searchContext";
+import MenuHamburguer from "./Commons/menuHamburguer";
+import MenuNascosto from "./menuNascosto";
 
 class Navbar extends Component {
   state = {
@@ -12,6 +16,10 @@ class Navbar extends Component {
 
   onComponentMount = {
     //// ajax
+  };
+
+  hideMenu = (menuOpen) => {
+    this.setState({ menuOpen });
   };
 
   logoutModifier = () => {
@@ -47,18 +55,21 @@ class Navbar extends Component {
   };
   render() {
     return (
-      <nav className="navbar-expand-md mainMenu">
-        <LogoNavbar>cinema</LogoNavbar>
+      <>
+        <MenuNascosto menuOpen={this.state.menuOpen} />
+        <nav className="navbar-expand-md mainMenu">
+          <LogoNavbar>cinema</LogoNavbar>
 
-        <ul className="buttonsNavbarDiv collapse navbar-collapse">
-          <Search onSearch={this.props.onSearch} />
-          <ButtonNavbar link="/programmazione" innerText={"Programmazione"} />
-
-          <ButtonNavbar link="/prenotaOra" innerText={"Prenota Ora"} />
-
-          {this.loginHandler()}
-        </ul>
-      </nav>
+          <ul className="buttonsNavbarDiv">
+            {" "}
+            <MenuHamburguer hideMenu={this.hideMenu} />
+            <Search />
+            <ButtonNavbar link="/programmazione" innerText={"Programmazione"} />
+            <ButtonNavbar link="/prenotaOra" innerText={"Prenota Ora"} />
+            {this.loginHandler()}
+          </ul>
+        </nav>
+      </>
     );
   }
 }

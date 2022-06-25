@@ -1,13 +1,13 @@
 .box {
   position: relative;
-  margin-right: 50px;
-  margin-left: auto;
+  margin-right: auto;
+  margin-left: 0;
 }
 
 .input {
   padding: 10px;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   background: none;
   border: 3px solid #42fbf2;
   border-radius: 50px;
@@ -18,21 +18,55 @@
   outline: none;
   transition: 0.5s;
 }
-.box:hover input {
+/* .box:hover input {
   width: 120px;
+  background: #25252a;
+  border-radius: 10px;
+} */
+
+.box input:hover,
+.box input:focus,
+.box input:active {
+  width: 180px;
   background: #25252a;
   border-radius: 10px;
 }
 .box i {
   position: absolute;
   top: 50%;
-  right: 3.5px;
+  right: 1px;
   transform: translate(-50%, -50%);
   font-size: 20px;
   color: #42fbf2;
   transition: 0.2s;
 }
-.box:hover i {
+.box:hover i,
+.box:focus i,
+.box:active i {
   opacity: 0;
   z-index: -1;
+}
+
+@media screen and (max-width: 1200px) {
+  .input {
+    width: 35px;
+    height: 35px;
+  }
+  .box i {
+    right: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .input {
+    width: 33px;
+    height: 33px;
+  }
+  .box i {
+    font-size: 17px;
+  }
+
+  .box:hover input {
+    width: 80px;
+  }
 }
